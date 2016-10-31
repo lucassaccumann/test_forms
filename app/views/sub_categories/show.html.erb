@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @sub_category.name %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @sub_category.slug %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sub_categories.fields.order(:order).each do |campo| %>
+    <tr>
+      <td><%= campo.order %></td>
+      <td><%= campo.tipo %></td>
+      <td><%= campo.title %></td>
+      <td><%= link_to 'Show', campo %></td>
+      <td><%= link_to 'Destroy', campo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>  
+	<% end %>
+<%= link_to 'Home', root_url %> |
+<%= link_to 'Edit', edit_sub_category_path %> |
+<%= link_to "Novo campo", new_field_path(:sub_category => @sub_category.id) %> |
+<%= link_to "Monta form", visualize_form_path %> |
+<%= link_to 'Back', sub_categories_path %>
+<br>

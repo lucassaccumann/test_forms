@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @category.slug %>
+</p>
+<%= link_to 'Home', root_url %> |
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', :back %> |
+<%= link_to "Nova Sub-Categoria", new_sub_category_path(:category => @category.id) %> 
+<br>
+<table>
+  <thead>
+  <h4>Sub-Categorias</h4>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @categories.sub_categories.order(:id).each do |subcategory| %>
+    <tr>
+      <td><%= subcategory.id %></td>
+      <td><%= subcategory.name %></td> 
+      <td><%= link_to 'Show', subcategory %></td> 
+      <td><%= link_to 'Destroy', subcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>  
+   </tbody>
+<% end %>    
+</table>
+<br>
+

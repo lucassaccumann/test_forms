@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sub-Categoria</th>
+      <th>Order</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Values</th>
+      <th colspan="8"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fields.each do |field| %>
+      <tr>
+        <td><%= field.sub_category_id %></td>
+        <td><%= field.order %></td>
+        <td><%= field.title %></td>
+        <td><%= field.tipo %></td>
+        <td><%= field.values %></td>
+        <td><%= link_to 'Show', field %></td>
+        <td><%= link_to 'Edit', edit_field_path(field) %></td>
+        <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Home', root_url %> |
+<%= link_to 'Back', :back %> 

@@ -1,0 +1,4 @@
+= Funcionalidades e caracteristicas ausentes:
+- Ao deletar uma categoria, deletar todas suas sub-categorias
+- Ao deletar uma sub-categoria, deletar todos seus campos (fields)
+- Aplicação não renderiza os formulários gerados pela rota especificada.

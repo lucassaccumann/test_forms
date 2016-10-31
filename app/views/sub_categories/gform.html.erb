@@ -1,0 +1,27 @@
+<h1>Gerador de Form</h1>
+      <% @sub_categories.fields.order(:order).each do |campo| %>
+        
+          <%= form_for Field.new do |f| %>
+          <%= titulo = campo.title %>
+          <br>
+          <% case campo.tipo %>
+          <% when "text_area" %>
+           <%= f.text_area :order %>
+          <% when "check_box" %>
+            <%= f.check_box :order %>  
+          <% when "text_field" %>
+            <%= f.text_field :order %>
+          <% when "selection" %>
+            <% campo.values %>
+            <%= f.select :order, campo.values.tr(",-"," ").split(' ') %>
+          <% when "text_field" %>
+            <%= f.text_field :order %>
+          <% end %>
+          <% end %> 
+        
+      <% end %>
+
+<br><br>
+<%= link_to 'Home', root_url %> |
+<%= link_to 'Show', @sub_category %> |
+<%= link_to 'Back', :back %>
